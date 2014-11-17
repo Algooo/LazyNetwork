@@ -1,0 +1,204 @@
+.ajax-loader-transition(@delay){
+  &.ng-hide-remove {
+    .createTransition(all, linear, 0.25s);
+    display: block !important;
+  }
+  &.ng-hide-add {
+    .createTransition(all, linear, 0.25s);
+    .createTransitionDelay(@delay);
+    display: block !important;
+  }
+
+  &.ng-hide-add.ng-hide-add-active,
+  &.ng-hide-remove {
+    opacity: 0;
+  }
+
+  &.ng-hide-add,
+  &.ng-hide-remove.ng-hide-remove-active {
+    opacity: 0.95;
+  }
+}
+
+//LOADER http://cssload.net/en/animated_text
+#inTurnBlurringTextG{
+  position: relative;
+  top: 50%;
+  left: 50%;
+  margin-left: -90px;
+  margin-top: -14px;
+  width: 200px;
+}
+
+.inTurnBlurringTextG{
+  color:transparent;
+  font-size:28px;
+  float:left;
+  font-weight:normal;
+  text-shadow: #0095B7 0 0 0;
+  -moz-animation-name:bounce_inTurnBlurringTextG;
+  -moz-animation-duration:1.62s;
+  -moz-animation-iteration-count:infinite;
+  -moz-animation-direction:linear;
+  -webkit-animation-name:bounce_inTurnBlurringTextG;
+  -webkit-animation-duration:1.62s;
+  -webkit-animation-iteration-count:infinite;
+  -webkit-animation-direction:linear;
+  -ms-animation-name:bounce_inTurnBlurringTextG;
+  -ms-animation-duration:1.62s;
+  -ms-animation-iteration-count:infinite;
+  -ms-animation-direction:linear;
+  -o-animation-name:bounce_inTurnBlurringTextG;
+  -o-animation-duration:1.62s;
+  -o-animation-iteration-count:infinite;
+  -o-animation-direction:linear;
+  animation-name:bounce_inTurnBlurringTextG;
+  animation-duration:1.62s;
+  animation-iteration-count:infinite;
+  animation-direction:linear;
+}
+
+.inTurnBlurringTextGDelay(@delay){
+  -moz-animation-delay:@delay;
+  -webkit-animation-delay:@delay;
+  -ms-animation-delay:@delay;
+  -o-animation-delay:@delay;
+  animation-delay:@delay;
+}
+#inTurnBlurringTextG_1{
+  .inTurnBlurringTextGDelay(0.36s);
+}
+
+#inTurnBlurringTextG_2{
+  .inTurnBlurringTextGDelay(0.45s);
+}
+
+#inTurnBlurringTextG_3{
+  .inTurnBlurringTextGDelay(0.54s);
+}
+
+#inTurnBlurringTextG_4{
+  .inTurnBlurringTextGDelay(0.63s);
+}
+
+#inTurnBlurringTextG_5{
+  .inTurnBlurringTextGDelay(0.72s);
+}
+
+#inTurnBlurringTextG_6{
+  .inTurnBlurringTextGDelay(0.81s);
+}
+
+#inTurnBlurringTextG_7{
+  .inTurnBlurringTextGDelay(0.9s);
+}
+
+#inTurnBlurringTextG_8{
+  .inTurnBlurringTextGDelay(0.99s);
+}
+
+#inTurnBlurringTextG_9{
+  .inTurnBlurringTextGDelay(1.08s);
+}
+
+#inTurnBlurringTextG_10{
+  .inTurnBlurringTextGDelay(1.17s);
+}
+
+#inTurnBlurringTextG_11{
+  .inTurnBlurringTextGDelay(1.26s);
+}
+
+#inTurnBlurringTextG_12{
+  .inTurnBlurringTextGDelay(1.35s);
+}
+
+#inTurnBlurringTextG_13{
+  .inTurnBlurringTextGDelay(1.44s);
+}
+
+#inTurnBlurringTextG_14{
+  .inTurnBlurringTextGDelay(1.53s);
+}
+
+.bounce_inTurnBlurringTextG(){
+  0%{
+    text-shadow: @greenBlue 0 0 0;
+  }
+
+  100%{
+    text-shadow: @white 0 0 20px;
+  }
+}
+
+@-moz-keyframes bounce_inTurnBlurringTextG{
+  .bounce_inTurnBlurringTextG();
+}
+
+@-webkit-keyframes bounce_inTurnBlurringTextG{
+  .bounce_inTurnBlurringTextG();
+}
+
+@-ms-keyframes bounce_inTurnBlurringTextG{
+  .bounce_inTurnBlurringTextG();
+}
+
+@-o-keyframes bounce_inTurnBlurringTextG{
+  .bounce_inTurnBlurringTextG();
+}
+
+@keyframes bounce_inTurnBlurringTextG{
+  .bounce_inTurnBlurringTextG();
+}
+
+// http://www.ajaxload.info/
+.ajax-loader-root {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1050;
+  display: block;
+  width: 100%;
+  height: 100%;
+  opacity: 0.95;
+  //background: #@backgroundColor url(../images/ajax-loader.gif) center center no-repeat;
+  background: @backgroundColor;
+  &.ng-cloak {
+    display: block !important;
+  }
+}
+
+.ajax-loader-view {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 900; // navbar has 1000
+  display: block;
+  width: 100%;
+  height: 100%;
+  //background-color: @backgroundColor;
+  background: @backgroundColor url(../images/ajax-loader.gif) center center no-repeat;
+}
+
+.transparent-site-lock
+{
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1500;
+  display: block;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  background-color: #ffffff;
+  &.ng-cloak {
+    display: block !important;
+  }
+}
+
+.ajax-loader-root{
+  .ajax-loader-transition(0.5s);
+}
+.ajax-loader-view{
+  .ajax-loader-transition(0.25s);
+}

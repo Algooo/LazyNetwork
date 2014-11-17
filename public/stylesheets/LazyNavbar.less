@@ -1,0 +1,231 @@
+.nav, a {
+  cursor: pointer;
+}
+
+.lazy-navbar {
+  margin-bottom: 0px;
+  border-radius: 0px;
+  background: @navbarColor;
+  opacity: 1;
+  .standard-box-shadow();
+
+  .lazy-navbar-collapse {
+    max-height: 100%;
+  }
+
+  .navbar-brand{
+    font-size: 22px;
+  }
+
+  .navbar-toggle:hover, .navbar-toggle:focus {
+    background-color: @chevronIconColorHover;
+
+    .icon-bar {
+      background-color: @navbarColor;
+    }
+  }
+
+  .subItemIconDown {
+    display: none;
+  }
+
+  .subItemIconRight {
+    display: block;
+    float: right;
+    padding-top: 4px;
+  }
+
+  .subItemsOpened > a > .subItemIconRight {
+    color: @lightBlue;
+  }
+
+  .subItemIconLevel, .subItemIconRight {
+    color: @navTextColor;
+  }
+
+
+  .lazy-navbar-nav {
+    .navbarSubContainer {
+
+      &.collapse:not(.in){
+        display: none;
+      }
+
+      li {
+        position: relative;
+        display: block;
+        list-style: none;
+
+        a {
+          position: relative;
+          display: block;
+          padding: 10px 15px 10px 15px;
+          color: @navTextColor;
+          text-decoration: none;
+          line-height: 20px;
+        }
+      }
+    }
+  }
+}
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: @screen-phone) {
+
+}
+
+@media (max-width: @screen-xs-max) {
+  .lazy-navbar {
+    .lazy-navbar-nav {
+      li > a:hover,
+      li > a:focus {
+        background-color: @chevronIconColorHover;
+        color: @navCollapseColorHover;
+        .subItemIconRight, .subItemIconLevel{
+          color: @navCollapseColorHover;
+        }
+      }
+    }
+  }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: @screen-tablet) {
+  .lazy-navbar {
+    position: fixed;
+    min-width: @screen-tablet;
+    .subItemIconDown {
+      display: block;
+      text-align: center;
+    }
+
+    .subItemIconLevel, .subItemIconRight {
+      display: none;
+    }
+
+    .paddingBottom0 {
+      padding-bottom: 0px;
+    }
+
+    li {
+      float: left;
+
+      a {
+        margin-right: 20px;
+        margin-left: 20px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+      }
+    }
+
+    li > a:hover {
+      color: @navTextColorHover;
+    }
+
+    .lazy-navbar-nav > li > a {
+      margin-right: 15px;
+      margin-left: 15px;
+      padding-right: 0px;
+      padding-left: 0px;
+    }
+
+    .subItemsOpened > a > .subItemIconDown {
+      color: @lightBlue;
+    }
+
+    a:hover > .subItemIconDown {
+      color: @chevronIconColorHover;
+    }
+
+    .lazy-navbar-collapse{
+      float: left;
+
+      &.force-show{
+        height: auto !important;
+      }
+    }
+
+    .lazy-navbar-nav {
+
+      .navbarSubContainer {
+        position: fixed;
+        left: 0;
+        display: block;
+        width: 100%;
+        border-top: 1px solid @navBorderColor;
+        background: @navbarColor;
+        .standard-box-shadow();
+
+        ul {
+          display: block;
+          margin-right: auto;
+          margin-left: auto;
+          padding-right: 15px;
+          padding-left: 15px;
+          max-width: 750px;
+
+          li {
+            a {
+              padding: 15px 0px 15px 0px;
+            }
+
+            a.paddingBottom0 {
+              padding-bottom: 0px;
+            }
+          }
+
+          a:hover {
+            color: @navTextColorHover;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: @screen-desktop) {
+  .lazy-navbar {
+    .lazy-navbar-nav {
+      .navbarSubContainer {
+        ul {
+          max-width: 970px;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: @screen-lg-desktop) {
+  .lazy-navbar {
+    .lazy-navbar-nav {
+      .navbarSubContainer {
+        ul {
+          max-width: 1170px;
+        }
+      }
+    }
+  }
+}
+
+@media (min-height: (@screen-sm)) and (max-height: @screen-md) {
+  .lazy-navbar {
+    max-height: @screen-tablet;
+
+    .lazy-navbar-collapse {
+      overflow-y: auto;
+      max-height: (@screen-tablet - 50);
+    }
+  }
+}
+
+@media (max-height: @screen-sm) {
+  .lazy-navbar {
+    max-height: @screen-xs;
+
+    .lazy-navbar-collapse {
+      overflow-y: auto;
+      max-height: (@screen-xs );
+    }
+  }
+}

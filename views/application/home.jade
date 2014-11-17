@@ -1,0 +1,55 @@
+div(ng-controller="HomeController", class="container", id="homeContainer")
+    div(class="row lazyHoverRow")
+        div(class="col-xs-12 col-sm-12 col-md-12 col-lg-12 content-header")
+            h1(class="text-center")
+                strong There are several cool things I can do for you!
+    div(class="home-element-row")
+        div(class="row", ng-click="WebDevelopmentCollapsed = !WebDevelopmentCollapsed")
+            div(class="col-xs-12 col-sm-4 col-md-4 col-lg-4")
+                h1(class="text-center")
+                    img(src="/images/DesignDevelop.png", alt="Webdevelopment / Webdesign", class="")
+            div(class="col-xs-12 col-sm-8 col-md-8 col-lg-8")
+                h1 Webdevelopment / Webdesign
+                    br
+                    small.
+                        The visual and structural design of your personal website as well as its technical implementation
+        div(class="row", collapse="WebDevelopmentCollapsed")
+            div(class="col-xs-12 col-sm-12 col-md-12 col-lg-12 home-element-collapse-container")
+                div
+                    lazy-carousel(class="carousel")
+        div(class="row home-element-chevron", ng-click="WebDevelopmentCollapsed = !WebDevelopmentCollapsed")
+            div(class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center")
+                span(class="text-center fa", ng-class="{'fa-chevron-down': WebDevelopmentCollapsed, 'fa-chevron-up': !WebDevelopmentCollapsed}")
+    div(class="row")
+        div(class="col-lg-12")
+            h3 Webentwicklung / -design
+            div.
+               Die visuelle und strukturelle Gestaltung Ihrer persönlichen Website,
+               sowie dessen technische Implementierung
+            div(class="col-lg-12")
+                div
+                    ul
+                        li.
+                            Sie wissen schon wie Ihre Seite aussehen soll Dann ist der wichtigste Schritt schon getan und wir
+                            können direkt mit der Umsetzung beginnen.
+
+                        li.
+                           Sie haben noch keine genaue Vorstellung von Ihrer Wunschseite? Auch kein Problem,
+                           dann erarbeiten wir uns das optimale Ergebnis gemeinsam.
+
+    div(class="row")
+        div(class="col-lg-12")
+            h3 Webentwicklung / -design
+            div.
+               Die visuelle und strukturelle Gestaltung Ihrer persönlichen Website,
+               sowie dessen technische Implementierung
+            div(class="col-lg-12")
+                div
+                    ul
+                        li.
+                            Sie wissen schon wie Ihre Seite aussehen soll Dann ist der wichtigste Schritt schon getan und wir
+                            können direkt mit der Umsetzung beginnen.
+
+                        li.
+                           Sie haben noch keine genaue Vorstellung von Ihrer Wunschseite? Auch kein Problem,
+                           dann erarbeiten wir uns das optimale Ergebnis gemeinsam.

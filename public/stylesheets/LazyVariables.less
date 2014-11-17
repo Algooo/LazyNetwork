@@ -1,0 +1,89 @@
+// Media queries breakpoints
+// --------------------------------------------------
+
+// Extra small screen / phone
+@screen-xs: 480px;
+@screen-phone: @screen-xs;
+
+// Small screen / tablet
+@screen-sm: 768px;
+@screen-tablet: @screen-sm;
+
+// Medium screen / desktop
+@screen-md: 992px;
+@screen-desktop: @screen-md;
+
+// Large screen / wide desktop
+@screen-lg: 1200px;
+@screen-lg-desktop: @screen-lg;
+
+// So media queries don't overlap when required, provide a maximum
+@screen-xs-max: (@screen-sm - 1);
+@screen-sm-max: (@screen-md - 1);
+@screen-md-max: (@screen-lg - 1);
+
+// Colors
+@backgroundColor: #ffffff;
+
+@white: #FFFFFF;
+@lightBlue: #00bfff;
+@lightGrey: #F3F3F3;
+@grey: #EEEEEE;
+@darkGrey: #DDDDDD;
+@greenBlue: #0095B7;
+@darkBlue: #003B4C;
+@black: #000000;
+@navbarColor: #ffffff;
+@chevronIconColorHover: #0C8BCE;
+@backgroundblue: #CEF2FF;
+// Navigation
+@navCollapseColorHover: #ffffff;
+@navBorderColor: #e6e6e6;
+@navTextColor: #777777;
+@navTextColorHover: #333333;
+
+.standard-box-shadow () {
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.15);
+}
+.createTransition(@property, @timingFunc, @duration){
+  -webkit-transition:@property @timingFunc @duration;
+  -moz-transition:@property @timingFunc @duration;
+  -o-transition:@property @timingFunc @duration;
+  transition:@property @timingFunc @duration;
+}
+.createTransitionDelay(@delay){
+  -webkit-transition-delay: @delay;
+  -moz-transition-delay: @delay;
+  -o-transition-delay: @delay;
+  transition-delay: @delay;
+}
+
+.standard-opacity-animation(@duration) {
+  &.ng-hide-add,
+  &.ng-hide-remove {
+    .createTransition(all, linear, @duration);
+    display: block !important;
+  }
+  &.ng-hide-add.ng-hide-add-active,
+  &.ng-hide-remove {
+    opacity: 0;
+  }
+
+  &.ng-hide-add,
+  &.ng-hide-remove.ng-hide-remove-active {
+    opacity: 1;
+  }
+}
+
+.ngHideRemove-opacity-animation(@duration: 0.25s){
+  &.ng-hide-remove {
+    .createTransition(all, linear, @duration);
+    display: block !important;
+  }
+  &.ng-hide-remove {
+    opacity: 0;
+  }
+  &.ng-hide-remove.ng-hide-remove-active {
+    opacity: 1;
+  }
+}

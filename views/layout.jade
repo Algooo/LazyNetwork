@@ -1,0 +1,38 @@
+doctype html
+html
+    head
+        meta(charset="utf-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0, user-scalable=no")
+        title= title
+        link(rel='stylesheet', href='/stylesheets/bootstrap.min.css', type="text/css")
+        link(rel='stylesheet', href='/stylesheets/font-awesome.min.css', type="text/css")
+        link(rel='stylesheet', href='/stylesheets/SiteCustom.css', type="text/css")
+    body(ng-controller="BodyController")
+        include ajaxLoader.jade
+        div(ng-controller="NavbarController", class="navbar navbar-default navbar-fixed-top lazy-navbar", role="navigation")
+            //Brand and toggle get grouped for better mobile display
+            div(class='container')
+                div(class='navbar-header')
+                    button(type='button', class='navbar-toggle', ng-click='navbarButtonClicked()')
+                        span(class='sr-only') Toggle navigation
+                        span(class='icon-bar')
+                        span(class='icon-bar')
+                        span(class='icon-bar')
+                    a(class='navbar-brand', href='home') LazyNetwork
+                // Collect the nav links, forms, and other content for toggling
+                nav(ng-class="{'collapse': navbarModel.navbarCollapsed}", collapse="navbarModel.navbarCollapsed",
+                class='navbar-collapse lazy-navbar-collapse force-show')
+                    lazy-Navbar( ng-if="navbarModel != null", menu-Items="navbarModel.navbarMenuItems",
+                    navbar-Ctrl-Scope="$parent")
+    div(class="lazyTitle")
+        div(class="backgroundTitleImg")
+        div(class="lazyTitle-subtext-container")
+            div(class="container")
+                p.
+                    "Not the size of a project determines the success.<br>
+                    For this reason, I pay particular attention to design complex processes as
+                    easy as possible for users.<br>
+                    Though the individual and flexible development, I'm achieving good results."
+    div(class="viewContrainer")
+        block content
+    script(src="/javascripts/vendor/require.js", data-main="/javascripts/main.js")
