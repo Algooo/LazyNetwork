@@ -6,5 +6,6 @@ Lazy Network Website
 <ul>
   <li> Get repository </li>
   <li> Run npm_install.bat to get dependent node modules </li>
-  <li> Install mongoDB </li>
+  <li> Install mongoDB (See <a target="_blank" href="http://docs.mongodb.org/manual/installation/">mongodb manual</a>)
+  </li>
 </ul>
