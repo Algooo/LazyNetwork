@@ -4,7 +4,8 @@
         '$scope',
         function ($scope) {
             $scope.ControllerName = "Home";
-            $scope.WebDevelopmentCollapsed = true;
+            $scope.WebDevelopmentCollapsed = false;
+            $scope.SinglePageAppCollapsed = false;
             $scope.WebDevelopmentCarouselUrls = ['templates/home/webdevelopmentCarousel.html']
         }
     ]);
