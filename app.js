@@ -3,7 +3,8 @@
  * Module dependencies.
  */
 
-define(['http', 'module', 'path', 'express', 'mongoose'], function (http, module, path, express, db) {
+define(['http', 'module', 'path', 'express', 'mongoose', 'serve-favicon', 'morgan', 'body-parser', 'method-override', 'errorhandler'], 
+function (http, module, path, express, db, favicon, logger, bodyParser, methodOverride, errorhandler) {
 
     //var express = require('express');
     //var http = require('http');
@@ -26,18 +27,17 @@ define(['http', 'module', 'path', 'express', 'mongoose'], function (http, module
     app.set('port', process.env.PORT || 3000);
     app.set('views', path.join(dirname, 'views'));
     app.set('view engine', 'jade');
-    app.use(express.favicon());
-    app.use(express.logger('dev'));
-    app.use(express.json());
-    app.use(express.urlencoded());
-    app.use(express.methodOverride());
-    app.use(app.router);
-    app.use(require('less-middleware')({ src: path.join(dirname, 'public') }));
+    // app.use(express.favicon());
+    app.use(logger('dev'));
+    app.use(bodyParser.json());
+    app.use(bodyParser.urlencoded({ extended: true }));
+    app.use(methodOverride());
+    app.use(require('less-middleware')(path.join(dirname, 'public')));
     app.use(express.static(path.join(dirname, 'public')));
 
     // development only
     if ('development' == app.get('env')) {
-      app.use(express.errorHandler());
+      app.use(errorhandler());
     }
 
     //app.get('/users', user.list);
