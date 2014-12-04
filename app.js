@@ -19,12 +19,17 @@ function (http, module, path, express, db, favicon, logger, bodyParser, methodOv
     //var user = require('./routes/user');
 
     // Database
-    var dbURL = 'mongodb://192.168.2.105:27017/LazyNetwork';
+    var dbURL = 'mongodb://127.0.0.1:27017/LazyNetwork';
+
+    if(process.env.OPENSHIFT_MONGODB_DB_URL){
+  	dbURL = process.env.OPENSHIFT_MONGODB_DB_URL + 'LazyNetwork';
+    }
     db.connect(dbURL);
 
     // all environments
     var dirname = path.dirname(module.uri);
-    app.set('port', process.env.PORT || 3000);
+    app.set('port', process.env.OPENSHIFT_NODEJS_PORT || 8080);
+    app.set('server_ip_address', process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1');
     app.set('views', path.join(dirname, 'views'));
     app.set('view engine', 'jade');
     // app.use(express.favicon());
@@ -42,7 +47,7 @@ function (http, module, path, express, db, favicon, logger, bodyParser, methodOv
 
     //app.get('/users', user.list);
 
-    http.createServer(app).listen(app.get('port'), function(){
+    http.createServer(app).listen(app.get('port'), app.get('server_ip_address'), function(){
       console.log('Express server listening on port ' + app.get('port'));
     });
     return app;
