@@ -19,12 +19,17 @@ function (http, module, path, express, db, favicon, logger, bodyParser, methodOv
     //var user = require('./routes/user');
 
     // Database
-    var dbURL = 'mongodb://127.0.0.1:27017/LazyNetwork';
-
-    if(process.env.OPENSHIFT_MONGODB_DB_URL){
-  	dbURL = process.env.OPENSHIFT_MONGODB_DB_URL + 'LazyNetwork';
+    // default to a 'localhost' configuration:
+    var connection_string = '127.0.0.1:27017/LazyNetwork';
+    // if OPENSHIFT env variables are present, use the available connection info:
+   if(process.env.OPENSHIFT_MONGODB_DB_PASSWORD){
+      connection_string = process.env.OPENSHIFT_MONGODB_DB_USERNAME + ":" +
+      process.env.OPENSHIFT_MONGODB_DB_PASSWORD + "@" +
+      process.env.OPENSHIFT_MONGODB_DB_HOST + ':' +
+      process.env.OPENSHIFT_MONGODB_DB_PORT + '/' +
+      "LazyNetwork";
     }
-    db.connect(dbURL);
+    db.connect(connection_string);
 
     // all environments
     var dirname = path.dirname(module.uri);
