@@ -20,7 +20,7 @@ function (http, module, path, express, db, favicon, logger, bodyParser, methodOv
 
     // Database
     // default to a 'localhost' configuration:
-    var connection_string = '127.0.0.1:27017/LazyNetwork';
+    var connection_string = 'mongodb://admin:Ft6myWbeEzjW@127.3.229.130:27017/LazyNetwork';
     // if OPENSHIFT env variables are present, use the available connection info:
    if(process.env.OPENSHIFT_MONGODB_DB_URL){
       connection_string = process.env.OPENSHIFT_MONGODB_DB_URL + "LazyNetwork";
