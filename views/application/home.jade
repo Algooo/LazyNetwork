@@ -1,55 +1,100 @@
-div(ng-controller="HomeController", class="container", id="homeContainer")
-    div(class="row lazyHoverRow")
+div(ng-controller="HomeController", id="homeContainer")
+    div(class="row")
         div(class="col-xs-12 col-sm-12 col-md-12 col-lg-12 content-header")
             h1(class="text-center")
                 strong There are several cool things I can do for you!
-    div(class="home-element-row")
-        div(class="row", ng-click="WebDevelopmentCollapsed = !WebDevelopmentCollapsed")
-            div(class="col-xs-12 col-sm-4 col-md-4 col-lg-4")
-                h1(class="text-center")
-                    img(src="/images/DesignDevelop.png", alt="Webdevelopment / Webdesign", class="")
-            div(class="col-xs-12 col-sm-8 col-md-8 col-lg-8")
-                h1 Webdevelopment / Webdesign
-                    br
-                    small.
-                        The visual and structural design of your personal website as well as its technical implementation
-        div(class="row", collapse="WebDevelopmentCollapsed")
-            div(class="col-xs-12 col-sm-12 col-md-12 col-lg-12 home-element-collapse-container")
-                div
-                    lazy-carousel(class="carousel")
-        div(class="row home-element-chevron", ng-click="WebDevelopmentCollapsed = !WebDevelopmentCollapsed")
-            div(class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center")
-                span(class="text-center fa", ng-class="{'fa-chevron-down': WebDevelopmentCollapsed, 'fa-chevron-up': !WebDevelopmentCollapsed}")
+
+    // WebDevelopment
+    div(class="container")
+        div(class="home-element-row")
+            div(class="row home-element-row-header", ng-click="WebDevelopmentCollapsed = !WebDevelopmentCollapsed")
+                div(class="col-xs-12 col-sm-4 col-md-4 col-lg-4")
+                    h1(class="text-center")
+                        img(src="/images/DesignDevelop.png", alt="Webdevelopment / Webdesign", class="")
+                div(class="col-xs-12 col-sm-8 col-md-8 col-lg-8")
+                    h1 Webdevelopment / Webdesign
+                        br
+                        small.
+                            The visual and structural design of your personal website as well as its technical implementation
+
+            div(class="row home-element-row-collapse", collapse="WebDevelopmentCollapsed")
+                hr(class="home-element-collapse-seperator")
+                div(class="col-xs-12 col-sm-12 col-md-12 col-lg-12 home-element-collapse-container")
+                    div(class="row equal text-center")
+                        div(class="col-xs-12 col-sm-4 col-md-4 col-lg-4")
+                            img(src="/images/Communication.png", alt="Consulting")
+                            h2(class="text-center") Consulting
+                            p.
+                                I‘d be happy to answer any questions about your own internet presence. Only with good
+                                communication we can reach the desired result.
+                        div(class="col-xs-12 col-sm-4 col-md-4 col-lg-4")
+                            img(src="/images/Redesign.png", alt="Redesign")
+                            h2(class="text-center") Redesign
+                            p.
+                                If you want to get your existing internet site on the current state of the art,
+                                I’ll  support you with the latest web technologies.
+                        div(class="col-xs-12 col-sm-4 col-md-4 col-lg-4")
+                            img(src="/images/Percent.png", alt="New product development")
+                            h2 Build
+                            p.
+                                I lead you from the beginning to the end of the development and publication of the website.
+                                Also after that, I offer you my support for extensions and customizations.
+            div(class="row home-element-chevron", ng-click="WebDevelopmentCollapsed = !WebDevelopmentCollapsed")
+                div(class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center")
+                    span(class="text-center fa", ng-class="{'fa-chevron-down': WebDevelopmentCollapsed, 'fa-chevron-up': !WebDevelopmentCollapsed}")
+
+    // Single page app
+    div(class="grey-background")
+        div(class="container")
+            div(class="home-element-row")
+                div(class="row home-element-row-header", ng-click="SinglePageAppCollapsed = !SinglePageAppCollapsed")
+                    div(class="col-xs-12 col-sm-4 col-sm-push-8 col-md-4 col-lg-4")
+                        h1(class="text-center")
+                            img(src="/images/Responsive.png", alt="Responsive single page application", class="")
+                    div(class="col-xs-12 col-sm-8 col-sm-pull-4 col-md-8 col-lg-8")
+                        h1 Responsive single page application
+                            br
+                            small.
+                                Let your website feel like a real application on almost every device.
+
+                div(class="row home-element-row-collapse", collapse="SinglePageAppCollapsed")
+                    hr(class="home-element-collapse-seperator")
+                    div(class="col-xs-12 col-sm-12 col-md-12 col-lg-12 home-element-collapse-container")
+                        div(class="row text-center")
+                            div(class="col-xs-12 col-sm-12 col-md-6 col-lg-6")
+                                div(class="row")
+                                    div(class="col-xs-6 col-sm-6 col-md-6 col-lg-6")
+                                        div(class="single-page-app-col")
+                                            p.
+                                                Run your application on every device that has a connection to
+                                                the internet and a browser.
+                                    div(class="col-xs-6 col-sm-6 col-md-6 col-lg-6 ")
+                                        div(class="single-page-app-col")
+                                            p.
+                                                The layout automatically fits all screens.
+                            div(class="col-xs-12 col-sm-12 col-md-6 col-lg-6")
+                                div(class="row")
+                                    div(class="col-xs-6 col-sm-6 col-md-6 col-lg-6 ")
+                                        div(class="single-page-app-col")
+                                            p.
+                                               Reduce the page load by updating only the data that changes
+                                               instead of the complete page.
+                                    div(class="col-xs-6 col-sm-6 col-md-6 col-lg-6 ")
+                                        div(class="single-page-app-col")
+                                            p.
+                                               You’ll get not only beautiful designs, but also fast and fluid code.
+                div(class="row home-element-chevron", ng-click="SinglePageAppCollapsed = !SinglePageAppCollapsed")
+                    div(class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center")
+                        span(class="text-center fa", ng-class="{'fa-chevron-down': SinglePageAppCollapsed, 'fa-chevron-up': !SinglePageAppCollapsed}")
+
+
     div(class="row")
-        div(class="col-lg-12")
-            h3 Webentwicklung / -design
-            div.
-               Die visuelle und strukturelle Gestaltung Ihrer persönlichen Website,
-               sowie dessen technische Implementierung
-            div(class="col-lg-12")
-                div
-                    ul
-                        li.
-                            Sie wissen schon wie Ihre Seite aussehen soll Dann ist der wichtigste Schritt schon getan und wir
-                            können direkt mit der Umsetzung beginnen.
-
-                        li.
-                           Sie haben noch keine genaue Vorstellung von Ihrer Wunschseite? Auch kein Problem,
-                           dann erarbeiten wir uns das optimale Ergebnis gemeinsam.
-
-    div(class="row")
-        div(class="col-lg-12")
-            h3 Webentwicklung / -design
-            div.
-               Die visuelle und strukturelle Gestaltung Ihrer persönlichen Website,
-               sowie dessen technische Implementierung
-            div(class="col-lg-12")
-                div
-                    ul
-                        li.
-                            Sie wissen schon wie Ihre Seite aussehen soll Dann ist der wichtigste Schritt schon getan und wir
-                            können direkt mit der Umsetzung beginnen.
-
-                        li.
-                           Sie haben noch keine genaue Vorstellung von Ihrer Wunschseite? Auch kein Problem,
-                           dann erarbeiten wir uns das optimale Ergebnis gemeinsam.
+        div(class="text-center col-xs-12 col-sm-12 col-md-12 col-lg-12 content-header")
+            h1(class="text-center")
+                strong The process
+    div(class="container")
+        div(class="home-element-row")
+            div(class="row ")
+                div(class="col-xs-12 col-sm-12 col-md-12 col-lg-12")
+                    div
+                        lazy-carousel(class="carousel")

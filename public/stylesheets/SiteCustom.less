@@ -6,6 +6,7 @@ body {
   padding-top: 50px;
   background-color: @backgroundColor;
   font-family: 'Open Sans';
+  font-size: 16px;
 }
 
 .lazyTitle {
@@ -42,19 +43,54 @@ body {
     color: @greenBlue;
   }
   .home-element-row{
-    border-radius: 30px;
+    margin: 30px 0px;
+    border-radius: 30px 30px 0px 0px;
+    border: 1px solid @darkGrey;
+    border-bottom: 0px;
     .createTransition(all, ease, 0.5s);
+
+    hr{
+      border-top-color: @darkGrey;
+    }
+
+    .home-element-row-header{
+      padding: 20px;
+    }
+
+    .single-page-app-col{
+      padding-top: 10px;
+      border-top: 5px solid @lightBlue;
+      .createTransition(border-color, ease, 0.5s);
+    }
+    .single-page-app-col:hover{
+      border-top-color: @greenBlue;
+    }
+  }
+
+  .grey-background{
+    background-color: @lightGrey;
+    margin: 20px 0px;
+    -webkit-box-shadow: inset 0px 0px 25px 0px @darkGrey;
+    -moz-box-shadow:    inset 0px 0px 25px 0px @darkGrey;
+    box-shadow:         inset 0px 0px 25px 0px @darkGrey;
+  }
+
+  .home-element-collapse-seperator{
+    max-width: 80%;
+  }
+
+  .home-element-collapse-container{
+    margin-top: 30px;
   }
 
   .home-element-chevron{
     height: 25px;
     background-color: @grey;
-    margin: auto 0px;
+    margin: 20px auto 0px auto;
     .createTransition(all, ease, 0.5s);
   }
 
   .home-element-row:hover{
-    background-color: @lightGrey;
     .home-element-chevron{
       background-color: @darkGrey;
       color: @chevronIconColorHover;
@@ -67,6 +103,15 @@ body {
   background-color: @greenBlue;
   position: relative;
 
+  .carousel-block{
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0.0;
+    z-index: 99;
+  }
   .carousel-border-box{
     padding: 10px;
   }
@@ -76,12 +121,43 @@ body {
     width: 100%;
     margin: auto;
     overflow: hidden;
+    position: relative;
   }
+
   .carousel-content{
     text-align: center;
     color: @white;
-    width: 80%;
+    display: none;
+    position: relative;
+    width: 100%;
     margin: auto;
+
+    &.active{
+      display: block;
+    }
+
+    &.left-leaving{
+      left: 0;
+      top: 0;
+      position: absolute;
+      .createTransition(left, linear, 0.2s);
+    }
+
+    &.right-leaving{
+      left: 0;
+      top: 0;
+      position: absolute;
+      .createTransition(left, linear, 0.2s);
+    }
+
+    &.right-entering{
+      left: 100%;
+      .createTransition(left, linear, 0.2s);
+    }
+    &.left-entering{
+      left: -100%;
+      .createTransition(left, linear, 0.2s);
+    }
 
     h1.carousel-headline{
       padding: 40px 0px 20px 0px;
@@ -93,18 +169,25 @@ body {
       margin: 10px auto;
     }
   }
+
   .carousel-options{
     color: @white;
     margin: 40px auto 20px auto;
     overflow: auto;
-    display: table;
     max-width: 80%;
+    position: relative;
+
     .carousel-option{
-      float:left;
-      margin: 5px;
       font-weight: bold;
       border: solid 1px;
-      .createTransition(all, ease, 0.5s);
+      margin: 5px;
+      width: 100%;
+      .createTransition(background-color, ease, 0.5s);
+
+      &.active{
+        background-color: @white;
+        color: @greenBlue;
+      }
     }
     .carousel-option:hover{
       background-color: @white;
@@ -119,13 +202,12 @@ body {
     text-align: center;
     position: absolute;
     height: 100%;
-    width: 25%;
-
+    width: 50%;
 
     &.carousel-slide-left {
       left: 0px;
       top: 0px;
-      opacity: 0.5;
+      opacity: 0.2;
 
       background: -moz-linear-gradient(left, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0) 100%); /* FF3.6+ */
       background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(0,0,0,0.75)), color-stop(100%,rgba(0,0,0,0))); /* Chrome,Safari4+ */
@@ -141,7 +223,7 @@ body {
     &.carousel-slide-right{
       right: 0px;
       top: 0px;
-      opacity: 0.5;
+      opacity: 0.2;
 
       background: -moz-linear-gradient(left, rgba(0,0,0,0) 0%, rgba(0,0,0,0.75) 100%); /* FF3.6+ */
       background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(0,0,0,0)), color-stop(100%,rgba(0,0,0,0.75))); /* Chrome,Safari4+ */
@@ -166,10 +248,10 @@ body {
     }
   }
   .carousel-slide-left:hover{
-    opacity: 1;
+    opacity: 0.5;
   }
   .carousel-slide-right:hover{
-    opacity: 1;
+    opacity: 0.5;
   }
 }
 
@@ -188,7 +270,7 @@ body {
   .lazyTitle{
     .backgroundTitleImg{
       background-size: 800px auto;
-      height: 400px;
+      height: 450px;
     }
   }
 }
@@ -202,7 +284,7 @@ body {
   .lazyTitle{
     .backgroundTitleImg{
     background-size: 900px auto;
-    height: 400px;
+    height: 450px;
     }
   }
 }

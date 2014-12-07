@@ -1,69 +1,88 @@
 <div class="carousel-container">
-    <div class="carousel-slide carousel-slide-left"  ng-show="currentIndex > 0"
-         ng-click="slideToIndex(currentIndex - 1)">
-        <div class="carousel-slide-inner-left">
-            <i class="fa fa-chevron-left"></i>
-        </div>
-    </div>
     <div class="carousel-border-box">
         <div class="container-inner-box">
-            <div class="carousel-content" ng-if="currentIndex == 0">
+
+            <lazy-slide class="carousel-content active">
+                       <!-- ng-class="{'active': slideArray[0].isActive}"> -->
                 <h1 class="carousel-headline">
                     <strong>Discover</strong> <br/>
                 </h1>
                 <p>
                     Get to know what you need and define the goals we want to reach.
                 </p>
-            </div>
-            <div class="carousel-content" ng-if="currentIndex == 1">
+            </lazy-slide>
+            <lazy-slide class="carousel-content">
+                    <!--ng-class="{'active': slideArray[1].isActive }"> -->
                 <h1 class="carousel-headline">
                     <strong>Design</strong> <br/>
                 </h1>
                 <p>
                     Define the the custom appearance and the Content of the Application.
                 </p>
-            </div>
-            <div class="carousel-content" ng-if="currentIndex == 2">
+            </lazy-slide>
+            <lazy-slide class="carousel-content">
+                    <!--ng-class="{'active': slideArray[2].isActive }"> -->
                 <h1 class="carousel-headline">
                     <strong>Develop</strong> <br/>
                 </h1>
                 <p>
                     The Implmentation of the defined requirements with the latest technologies.
                 </p>
-            </div>
-            <div class="carousel-content" ng-if="currentIndex == 3">
+            </lazy-slide>
+            <lazy-slide class="carousel-content">
+                    <!--ng-class="{'active': slideArray[3].isActive }"> -->
                 <h1 class="carousel-headline">
                     <strong>Extend</strong> <br/>
                 </h1>
                 <p>
                     Continous improvment of your software by creating new features and extending the existing.
                 </p>
+            </lazy-slide>
+
+            <div class="carousel-slide carousel-slide-left"  ng-show="currentIndex > 0"
+                 ng-click="slideToIndex(currentIndex - 1)">
+                <div class="carousel-slide-inner-left">
+                    <i class="fa fa-chevron-left"></i>
+                </div>
+            </div>
+            <div class="carousel-slide carousel-slide-right" ng-show="currentIndex < (slideArray.length - 1)"
+                 ng-click="slideToIndex(currentIndex + 1)">
+                <div class="carousel-slide-inner-right">
+                    <i class="fa fa-chevron-right"></i>
+                </div>
             </div>
 
-            <div class="carousel-options">
-                <div class="carousel-option btn">
-                    <div>I</div>
-                    <div>Discover</div>
+            <div class="carousel-options row">
+                <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                    <div class="carousel-option btn" ng-click="slideToIndex(0)"
+                         ng-class="{'active': currentIndex == 0}">
+                        <div>I</div>
+                        <div>Discover</div>
+                    </div>
                 </div>
-                <div class="carousel-option btn">
-                    <div>II</div>
-                    <div>Design</div>
+                <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                    <div class="carousel-option btn" ng-click="slideToIndex(1)"
+                         ng-class="{'active': currentIndex == 1}">
+                        <div>II</div>
+                        <div>Design</div>
+                    </div>
                 </div>
-                <div class="carousel-option btn">
-                    <div>III</div>
-                    <div>Develop</div>
+                <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                    <div class="carousel-option btn" ng-click="slideToIndex(2)"
+                         ng-class="{'active': currentIndex == 2}">
+                        <div>III</div>
+                        <div>Develop</div>
+                    </div>
                 </div>
-                <div class="carousel-option btn">
-                    <div>IV</div>
-                    <div>Extend</div>
+                <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                    <div class="carousel-option btn" ng-click="slideToIndex(3)"
+                         ng-class="{'active': currentIndex == 3}">
+                        <div>IV</div>
+                        <div>Extend</div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="carousel-slide carousel-slide-right" ng-show="currentIndex < (contentCount-1)"
-         ng-click="slideToIndex(currentIndex + 1)">
-        <div class="carousel-slide-inner-right">
-            <i class="fa fa-chevron-right"></i>
-        </div>
-    </div>
+    <div class="carousel-block" ng-show="blockActive"></div>
 </div>
