@@ -137,7 +137,7 @@
 
                 };
             },
-            templateUrl: 'templates/home/WebdevelopmentCarousel.html'
+            templateUrl: 'templates/home/webdevelopmentCarousel.html'
         };
     }])
     .directive('lazySlide', [function(){
